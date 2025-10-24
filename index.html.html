@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>英文克漏字題庫（50 組）</title>
+<style>
+  :root{--bg:#f7f8fa;--card:#fff;--accent:#2d7ff9;--muted:#666;}
+  body{font-family: "Noto Sans", Arial, sans-serif; margin:0; padding:18px; background:var(--bg); color:#222;}
+  header{display:flex; align-items:center; gap:12px; margin-bottom:12px;}
+  h1{font-size:1.4rem; margin:0;}
+  .wrap{max-width:1100px; margin:0 auto;}
+  .topbar{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;}
+  .group-btn{background:var(--card); border:1px solid #e6e9ee; padding:6px 8px; border-radius:6px; cursor:pointer; font-size:0.95rem;}
+  .group-btn.active{border-color:var(--accent); box-shadow:0 1px 0 rgba(45,127,249,0.08);}
+  .panel{background:var(--card); padding:14px; border-radius:10px; box-shadow:0 1px 6px rgba(20,20,30,0.04);}
+  .passage{margin-bottom:12px; line-height:1.8;}
+  .question{margin:12px 0; padding:10px; border-radius:8px; background:#fbfdff; border:1px solid #f0f5ff;}
+  .options{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;}
+  .opt{padding:8px 12px; border-radius:8px; border:1px solid #ddd; background:#fff; cursor:pointer; user-select:none;}
+  .opt.selected{border-color:var(--accent); background:#eef5ff;}
+  .opt.correct{background:#e8f7ef; border-color: #2aa05a; color:#117a3a; font-weight:700;}
+  .opt.wrong{background:#fdecea; border-color:#d9534f; color:#b42d2d; font-weight:700;}
+  .controls{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
+  .btn{padding:8px 12px; border-radius:8px; border:1px solid #d2d6db; background:var(--card); cursor:pointer;}
+  .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .translation{display:none; margin-top:12px; padding:12px; background:#fff9ec; border-left:4px solid #ffd27f; border-radius:6px;}
+  .answer-inline{color:red; font-weight:700;}
+  .status{margin-top:10px; font-weight:700;}
+  footer{margin-top:16px; color:var(--muted); font-size:0.95rem;}
+  .small{font-size:0.95rem; color:var(--muted);}
+  @media (max-width:640px){ .options{flex-direction:column;} .group-btn{padding:6px 6px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>英文克漏字題庫（50 組）</h1>
+      <div class="small">功能：題組切換 / A-D 選擇 / 檢查答案 / 顯示正解 / 顯示中文翻譯</div>
+    </div>
+  </header>
+  <div class="topbar" id="groupList"></div>
+
+  <main class="panel" id="panel"></main>
+
+  <footer>
+    <div class="small">備註：本檔為離線單檔題庫，可直接下載並上傳到 GitHub Pages 或 CodePen 以取得公開網址。</div>
+  </footer>
+</div>
+
+<script>
+const groups = [
+  {
+    "id": 1,
+    "title": "創造力（五題式）",
+    "passage": "When we think about creativity, we often imagine great artists or inventors. However, creativity is not limited to painting or building new machines — it can also be found in everyday problem solving. In fact, researchers say that being creative simply means seeing things _____ and finding new ways to deal with challenges.",
+    "questions": [
+      {
+        "q": "seeing things _____",
+        "choices": [
+          "differently",
+          "directly",
+          "clearly",
+          "easily"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "explore new ideas _____ fear of being wrong",
+        "choices": [
+          "except for",
+          "apart from",
+          "instead of",
+          "without"
+        ],
+        "answer": 3
+      },
+      {
+        "q": "His story shows that _____ effort and patience are as important as talent.",
+        "choices": [
+          "keeping",
+          "constant",
+          "regular",
+          "steady"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "an environment _____ curiosity is welcomed",
+        "choices": [
+          "that",
+          "when",
+          "which",
+          "where"
+        ],
+        "answer": 3
+      },
+      {
+        "q": "give your imagination a chance to _____",
+        "choices": [
+          "wake up",
+          "give up",
+          "take off",
+          "come out"
+        ],
+        "answer": 2
+      }
+    ],
+    "trans_full": "當我們想到「創造力」時，往往會聯想到偉大的藝術家或發明家。事實上，研究者指出，所謂「有創造力」只是代表你能以不同的角度 [differently] 看事情，並用新的方法面對挑戰。這種心態讓他們能夠不害怕犯錯 [without] 地探索新想法。許多發現是靠著不斷嘗試，直到成功為止。他的故事告訴我們，持續不斷的 [constant] 努力與耐心，和天分一樣重要。創造力最容易在一個鼓勵好奇心並把失敗視為通往成功一步的環境 [where] 中成長。當你讓自己的想像力自由 [take off] 時，你可能會對自己的成就感到驚訝。"
+  },
+  {
+    "id": 2,
+    "title": "Internet（錯誤資訊傳播）",
+    "passage": "The Internet has changed the way we communicate, work, and learn. While it offers countless benefits, it also presents challenges. One of the major concerns is the spread of misinformation. False information can go _____ very quickly, influencing public opinion and even affecting elections.",
+    "questions": [
+      {
+        "q": "False information can go _____ very quickly",
+        "choices": [
+          "around",
+          "off",
+          "about",
+          "into"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "how to _____ online information carefully",
+        "choices": [
+          "evaluate",
+          "ignore",
+          "select",
+          "remove"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "take full advantage while _____ the risks",
+        "choices": [
+          "preventing",
+          "ignoring",
+          "avoiding",
+          "increasing"
+        ],
+        "answer": 2
+      }
+    ],
+    "trans_full": "錯誤資訊可以非常快速地傳播 [around]，影響公眾輿論甚至影響選舉。教導人們如何謹慎地 [evaluate] 網路資訊十分重要。透過謹慎、深思與開放態度，我們可以充分利用其好處，同時避免 [avoiding] 風險。"
+  },
+  {
+    "id": 3,
+    "title": "電動車（閱讀理解）",
+    "passage": "Electric cars are becoming more popular as people become more aware of environmental issues. Unlike traditional gasoline-powered vehicles, electric cars produce no tailpipe emissions, which helps reduce air pollution and combat climate change. However, there are still challenges to widespread adoption. One major concern is _____...",
+    "questions": [
+      {
+        "q": "One major concern is _____ (續航距離)",
+        "choices": [
+          "range",
+          "efficiency",
+          "safety",
+          "maintenance"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Governments offer incentives to _____ buyers",
+        "choices": [
+          "discourage",
+          "encourage",
+          "delay",
+          "force"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "a more _____ and sustainable world",
+        "choices": [
+          "polluted",
+          "clean",
+          "crowded",
+          "dangerous"
+        ],
+        "answer": 1
+      }
+    ],
+    "trans_full": "其中一個主要問題是 續航距離 [range]。政府提供獎勵以鼓勵 [encourage] 購買者轉向電動車。這是朝向更清潔 [clean] 與永續世界的步伐。"
+  },
+  {
+    "id": 4,
+    "title": "城市化與綠色城市",
+    "passage": "In many parts of the world, more and more people are moving into cities. Urban life offers convenience, job opportunities, and cultural experiences that attract millions every year. However, this rapid urbanization also brings a number of challenges.",
+    "questions": [
+      {
+        "q": "so that people can live _____ away from the city center",
+        "choices": [
+          "farther",
+          "higher",
+          "closer",
+          "shorter"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "spaces that are not only efficient but also _____ to live in",
+        "choices": [
+          "dangerous",
+          "expensive",
+          "comfortable",
+          "crowded"
+        ],
+        "answer": 2
+      },
+      {
+        "q": "city must be built not just with concrete and steel, but with _____ and care",
+        "choices": [
+          "knowledge",
+          "money",
+          "luck",
+          "speed"
+        ],
+        "answer": 0
+      }
+    ],
+    "trans_full": "使人們能住得更遠 [farther] 離市中心。目標建立不僅高效，且宜居 [comfortable] 的空間。明日城市應以知識 [knowledge] 與關懷為基礎。"
+  },
+  {
+    "id": 5,
+    "title": "科技對溝通的影響",
+    "passage": "Technology has changed the way people communicate, learn, and even think. In the past, people relied mainly on letters and face-to-face conversations. Today, messages can be sent instantly through phones and computers, making communication faster and easier than ever before.",
+    "questions": [
+      {
+        "q": "we may lose the _____ to truly understand each other’s feelings",
+        "choices": [
+          "opportunity",
+          "ability",
+          "chance",
+          "habit"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "technology is shaping how we _____",
+        "choices": [
+          "eat",
+          "move",
+          "think",
+          "sleep"
+        ],
+        "answer": 2
+      },
+      {
+        "q": "balance convenience with _____",
+        "choices": [
+          "responsibility",
+          "curiosity",
+          "freedom",
+          "power"
+        ],
+        "answer": 0
+      }
+    ],
+    "trans_full": "當我們用簡訊或表情替代真實對話時，可能會失去理解彼此感受的能力 [ability]。科技塑造我們如何思考 [think]，挑戰在於在便利與責任 [responsibility] 間取得平衡。"
+  },
+  {
+    "id": 6,
+    "title": "Recycling and Waste",
+    "passage": "Recycling helps reduce the amount of trash sent to landfills and saves resources. Many cities encourage residents to separate items into bins for paper, plastic, and glass to make recycling more ______. However, contamination of recycling bins can make the materials difficult to ______.",
+    "questions": [
+      {
+        "q": "to make recycling more ______",
+        "choices": [
+          "efficient",
+          "expensive",
+          "dangerous",
+          "rare"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "difficult to ______",
+        "choices": [
+          "process",
+          "create",
+          "sell",
+          "throw"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Recycling helps reduce the amount of ______",
+        "choices": [
+          "trash",
+          "water",
+          "sound",
+          "light"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "回收有助於減少送到掩埋場的垃圾並節省資源。許多城市鼓勵居民把紙張、塑膠與玻璃分類到不同的垃圾桶，以使回收更有效 [efficient]。然而，回收桶被污染會使材料難以處理 [process]。回收可減少垃圾 [trash]。",
+    "trans_full": "回收有助於減少送到掩埋場的垃圾並節省資源。許多城市鼓勵居民把紙張、塑膠與玻璃分類到不同的垃圾桶，以使回收更有效 [efficient]。然而，回收桶被污染會使材料難以處理 [process]。回收可減少垃圾 [trash]。"
+  },
+  {
+    "id": 7,
+    "title": "Biodiversity",
+    "passage": "Biodiversity plays an important role in modern society. People often need to understand biodiversity to make better decisions.. For example, simple actions at home can lead to biodiversity that benefit everyone. Community programs are a good way to increase public biodiversity and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand biodiversity to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to biodiversity that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public biodiversity and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Biodiversity 在現代社會扮演重要角色。人們常需要更加理解 Biodiversity，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Biodiversity。社區計畫是增加公眾 habits 並促進長期 awareness 的好方法。",
+    "trans_full": "Biodiversity 在現代社會扮演重要角色。人們常需要更加理解 Biodiversity，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Biodiversity。社區計畫是增加公眾 habits 並促進長期 awareness 的好方法。"
+  },
+  {
+    "id": 8,
+    "title": "Climate Change",
+    "passage": "Climate Change plays an important role in modern society. People often need to understand climate change to make better decisions.. For example, simple actions at home can lead to climate change that benefit everyone. Community programs are a good way to increase public climate change and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand climate change to make better ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to climate change that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public climate change and promote long-term ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Climate Change 在現代社會扮演重要角色。人們常需要更加理解 Climate Change，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Climate Change。社區計畫是增加公眾 cleaning 並促進長期 cleaning 的好方法。",
+    "trans_full": "Climate Change 在現代社會扮演重要角色。人們常需要更加理解 Climate Change，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Climate Change。社區計畫是增加公眾 cleaning 並促進長期 cleaning 的好方法。"
+  },
+  {
+    "id": 9,
+    "title": "Renewable Energy",
+    "passage": "Renewable Energy plays an important role in modern society. People often need to understand renewable energy to make better decisions.. For example, simple actions at home can lead to renewable energy that benefit everyone. Community programs are a good way to increase public renewable energy and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand renewable energy to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to renewable energy that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public renewable energy and promote long-term ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Renewable Energy 在現代社會扮演重要角色。人們常需要更加理解 Renewable Energy，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Renewable Energy。社區計畫是增加公眾 practice 並促進長期 cleaning 的好方法。",
+    "trans_full": "Renewable Energy 在現代社會扮演重要角色。人們常需要更加理解 Renewable Energy，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Renewable Energy。社區計畫是增加公眾 practice 並促進長期 cleaning 的好方法。"
+  },
+  {
+    "id": 10,
+    "title": "Artificial Intelligence",
+    "passage": "Artificial Intelligence plays an important role in modern society. People often need to understand artificial intelligence to make better decisions.. For example, simple actions at home can lead to artificial intelligence that benefit everyone. Community programs are a good way to increase public artificial intelligence and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand artificial intelligence to make better ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to artificial intelligence that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public artificial intelligence and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Artificial Intelligence 在現代社會扮演重要角色。人們常需要更加理解 Artificial Intelligence，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Artificial Intelligence。社區計畫是增加公眾 cleaning 並促進長期 safety 的好方法。",
+    "trans_full": "Artificial Intelligence 在現代社會扮演重要角色。人們常需要更加理解 Artificial Intelligence，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Artificial Intelligence。社區計畫是增加公眾 cleaning 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 11,
+    "title": "Online Privacy",
+    "passage": "Online Privacy plays an important role in modern society. People often need to understand online privacy to make better decisions.. For example, simple actions at home can lead to online privacy that benefit everyone. Community programs are a good way to increase public online privacy and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand online privacy to make better ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to online privacy that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public online privacy and promote long-term ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Online Privacy 在現代社會扮演重要角色。人們常需要更加理解 Online Privacy，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Online Privacy。社區計畫是增加公眾 practice 並促進長期 cleaning 的好方法。",
+    "trans_full": "Online Privacy 在現代社會扮演重要角色。人們常需要更加理解 Online Privacy，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Online Privacy。社區計畫是增加公眾 practice 並促進長期 cleaning 的好方法。"
+  },
+  {
+    "id": 12,
+    "title": "Healthy Eating",
+    "passage": "Healthy Eating plays an important role in modern society. People often need to understand healthy eating to make better decisions.. For example, simple actions at home can lead to healthy eating that benefit everyone. Community programs are a good way to increase public healthy eating and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand healthy eating to make better ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to healthy eating that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public healthy eating and promote long-term ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Healthy Eating 在現代社會扮演重要角色。人們常需要更加理解 Healthy Eating，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Healthy Eating。社區計畫是增加公眾 cleaning 並促進長期 cleaning 的好方法。",
+    "trans_full": "Healthy Eating 在現代社會扮演重要角色。人們常需要更加理解 Healthy Eating，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Healthy Eating。社區計畫是增加公眾 cleaning 並促進長期 cleaning 的好方法。"
+  },
+  {
+    "id": 13,
+    "title": "Exercise Benefits",
+    "passage": "Exercise Benefits plays an important role in modern society. People often need to understand exercise benefits to make better decisions.. For example, simple actions at home can lead to exercise benefits that benefit everyone. Community programs are a good way to increase public exercise benefits and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand exercise benefits to make better ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to exercise benefits that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public exercise benefits and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Exercise Benefits 在現代社會扮演重要角色。人們常需要更加理解 Exercise Benefits，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Exercise Benefits。社區計畫是增加公眾 protect 並促進長期 protect 的好方法。",
+    "trans_full": "Exercise Benefits 在現代社會扮演重要角色。人們常需要更加理解 Exercise Benefits，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Exercise Benefits。社區計畫是增加公眾 protect 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 14,
+    "title": "Sleep Importance",
+    "passage": "Sleep Importance plays an important role in modern society. People often need to understand sleep importance to make better decisions.. For example, simple actions at home can lead to sleep importance that benefit everyone. Community programs are a good way to increase public sleep importance and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand sleep importance to make better ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to sleep importance that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public sleep importance and promote long-term ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Sleep Importance 在現代社會扮演重要角色。人們常需要更加理解 Sleep Importance，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Sleep Importance。社區計畫是增加公眾 growth 並促進長期 practice 的好方法。",
+    "trans_full": "Sleep Importance 在現代社會扮演重要角色。人們常需要更加理解 Sleep Importance，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Sleep Importance。社區計畫是增加公眾 growth 並促進長期 practice 的好方法。"
+  },
+  {
+    "id": 15,
+    "title": "Study Habits",
+    "passage": "Study Habits plays an important role in modern society. People often need to understand study habits to make better decisions.. For example, simple actions at home can lead to study habits that benefit everyone. Community programs are a good way to increase public study habits and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand study habits to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to study habits that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public study habits and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Study Habits 在現代社會扮演重要角色。人們常需要更加理解 Study Habits，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Study Habits。社區計畫是增加公眾 support 並促進長期 habits 的好方法。",
+    "trans_full": "Study Habits 在現代社會扮演重要角色。人們常需要更加理解 Study Habits，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Study Habits。社區計畫是增加公眾 support 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 16,
+    "title": "Time Management",
+    "passage": "Time Management plays an important role in modern society. People often need to understand time management to make better decisions.. For example, simple actions at home can lead to time management that benefit everyone. Community programs are a good way to increase public time management and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand time management to make better ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to time management that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public time management and promote long-term ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Time Management 在現代社會扮演重要角色。人們常需要更加理解 Time Management，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Time Management。社區計畫是增加公眾 safety 並促進長期 growth 的好方法。",
+    "trans_full": "Time Management 在現代社會扮演重要角色。人們常需要更加理解 Time Management，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Time Management。社區計畫是增加公眾 safety 並促進長期 growth 的好方法。"
+  },
+  {
+    "id": 17,
+    "title": "Public Transportation",
+    "passage": "Public Transportation plays an important role in modern society. People often need to understand public transportation to make better decisions.. For example, simple actions at home can lead to public transportation that benefit everyone. Community programs are a good way to increase public public transportation and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand public transportation to make better ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to public transportation that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public public transportation and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Public Transportation 在現代社會扮演重要角色。人們常需要更加理解 Public Transportation，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Public Transportation。社區計畫是增加公眾 habits 並促進長期 protect 的好方法。",
+    "trans_full": "Public Transportation 在現代社會扮演重要角色。人們常需要更加理解 Public Transportation，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Public Transportation。社區計畫是增加公眾 habits 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 18,
+    "title": "Urban Farming",
+    "passage": "Urban Farming plays an important role in modern society. People often need to understand urban farming to make better decisions.. For example, simple actions at home can lead to urban farming that benefit everyone. Community programs are a good way to increase public urban farming and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand urban farming to make better ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to urban farming that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public urban farming and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Urban Farming 在現代社會扮演重要角色。人們常需要更加理解 Urban Farming，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Urban Farming。社區計畫是增加公眾 safety 並促進長期 awareness 的好方法。",
+    "trans_full": "Urban Farming 在現代社會扮演重要角色。人們常需要更加理解 Urban Farming，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Urban Farming。社區計畫是增加公眾 safety 並促進長期 awareness 的好方法。"
+  },
+  {
+    "id": 19,
+    "title": "Water Conservation",
+    "passage": "Water Conservation plays an important role in modern society. People often need to understand water conservation to make better decisions.. For example, simple actions at home can lead to water conservation that benefit everyone. Community programs are a good way to increase public water conservation and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand water conservation to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to water conservation that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public water conservation and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Water Conservation 在現代社會扮演重要角色。人們常需要更加理解 Water Conservation，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Water Conservation。社區計畫是增加公眾 practice 並促進長期 habits 的好方法。",
+    "trans_full": "Water Conservation 在現代社會扮演重要角色。人們常需要更加理解 Water Conservation，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Water Conservation。社區計畫是增加公眾 practice 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 20,
+    "title": "Endangered Species",
+    "passage": "Endangered Species plays an important role in modern society. People often need to understand endangered species to make better decisions.. For example, simple actions at home can lead to endangered species that benefit everyone. Community programs are a good way to increase public endangered species and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand endangered species to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to endangered species that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public endangered species and promote long-term ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Endangered Species 在現代社會扮演重要角色。人們常需要更加理解 Endangered Species，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Endangered Species。社區計畫是增加公眾 growth 並促進長期 growth 的好方法。",
+    "trans_full": "Endangered Species 在現代社會扮演重要角色。人們常需要更加理解 Endangered Species，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Endangered Species。社區計畫是增加公眾 growth 並促進長期 growth 的好方法。"
+  },
+  {
+    "id": 21,
+    "title": "Language Learning",
+    "passage": "Language Learning plays an important role in modern society. People often need to understand language learning to make better decisions.. For example, simple actions at home can lead to language learning that benefit everyone. Community programs are a good way to increase public language learning and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand language learning to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to language learning that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public language learning and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Language Learning 在現代社會扮演重要角色。人們常需要更加理解 Language Learning，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Language Learning。社區計畫是增加公眾 habits 並促進長期 protect 的好方法。",
+    "trans_full": "Language Learning 在現代社會扮演重要角色。人們常需要更加理解 Language Learning，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Language Learning。社區計畫是增加公眾 habits 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 22,
+    "title": "Cultural Festivals",
+    "passage": "Cultural Festivals plays an important role in modern society. People often need to understand cultural festivals to make better decisions.. For example, simple actions at home can lead to cultural festivals that benefit everyone. Community programs are a good way to increase public cultural festivals and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand cultural festivals to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to cultural festivals that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public cultural festivals and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Cultural Festivals 在現代社會扮演重要角色。人們常需要更加理解 Cultural Festivals，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Cultural Festivals。社區計畫是增加公眾 support 並促進長期 safety 的好方法。",
+    "trans_full": "Cultural Festivals 在現代社會扮演重要角色。人們常需要更加理解 Cultural Festivals，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Cultural Festivals。社區計畫是增加公眾 support 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 23,
+    "title": "Space Exploration",
+    "passage": "Space Exploration plays an important role in modern society. People often need to understand space exploration to make better decisions.. For example, simple actions at home can lead to space exploration that benefit everyone. Community programs are a good way to increase public space exploration and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand space exploration to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to space exploration that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public space exploration and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Space Exploration 在現代社會扮演重要角色。人們常需要更加理解 Space Exploration，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Space Exploration。社區計畫是增加公眾 habits 並促進長期 habits 的好方法。",
+    "trans_full": "Space Exploration 在現代社會扮演重要角色。人們常需要更加理解 Space Exploration，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Space Exploration。社區計畫是增加公眾 habits 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 24,
+    "title": "Ocean Pollution",
+    "passage": "Ocean Pollution plays an important role in modern society. People often need to understand ocean pollution to make better decisions.. For example, simple actions at home can lead to ocean pollution that benefit everyone. Community programs are a good way to increase public ocean pollution and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand ocean pollution to make better ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to ocean pollution that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public ocean pollution and promote long-term ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Ocean Pollution 在現代社會扮演重要角色。人們常需要更加理解 Ocean Pollution，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Ocean Pollution。社區計畫是增加公眾 safety 並促進長期 support 的好方法。",
+    "trans_full": "Ocean Pollution 在現代社會扮演重要角色。人們常需要更加理解 Ocean Pollution，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Ocean Pollution。社區計畫是增加公眾 safety 並促進長期 support 的好方法。"
+  },
+  {
+    "id": 25,
+    "title": "Coral Reefs",
+    "passage": "Coral Reefs plays an important role in modern society. People often need to understand coral reefs to make better decisions.. For example, simple actions at home can lead to coral reefs that benefit everyone. Community programs are a good way to increase public coral reefs and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand coral reefs to make better ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to coral reefs that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public coral reefs and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Coral Reefs 在現代社會扮演重要角色。人們常需要更加理解 Coral Reefs，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Coral Reefs。社區計畫是增加公眾 practice 並促進長期 habits 的好方法。",
+    "trans_full": "Coral Reefs 在現代社會扮演重要角色。人們常需要更加理解 Coral Reefs，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Coral Reefs。社區計畫是增加公眾 practice 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 26,
+    "title": "Mental Health",
+    "passage": "Mental Health plays an important role in modern society. People often need to understand mental health to make better decisions.. For example, simple actions at home can lead to mental health that benefit everyone. Community programs are a good way to increase public mental health and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand mental health to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to mental health that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public mental health and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Mental Health 在現代社會扮演重要角色。人們常需要更加理解 Mental Health，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Mental Health。社區計畫是增加公眾 safety 並促進長期 habits 的好方法。",
+    "trans_full": "Mental Health 在現代社會扮演重要角色。人們常需要更加理解 Mental Health，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Mental Health。社區計畫是增加公眾 safety 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 27,
+    "title": "Volunteer Work",
+    "passage": "Volunteer Work plays an important role in modern society. People often need to understand volunteer work to make better decisions.. For example, simple actions at home can lead to volunteer work that benefit everyone. Community programs are a good way to increase public volunteer work and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand volunteer work to make better ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to volunteer work that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public volunteer work and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Volunteer Work 在現代社會扮演重要角色。人們常需要更加理解 Volunteer Work，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Volunteer Work。社區計畫是增加公眾 support 並促進長期 protect 的好方法。",
+    "trans_full": "Volunteer Work 在現代社會扮演重要角色。人們常需要更加理解 Volunteer Work，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Volunteer Work。社區計畫是增加公眾 support 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 28,
+    "title": "Leadership",
+    "passage": "Leadership plays an important role in modern society. People often need to understand leadership to make better decisions.. For example, simple actions at home can lead to leadership that benefit everyone. Community programs are a good way to increase public leadership and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand leadership to make better ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to leadership that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public leadership and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Leadership 在現代社會扮演重要角色。人們常需要更加理解 Leadership，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Leadership。社區計畫是增加公眾 support 並促進長期 safety 的好方法。",
+    "trans_full": "Leadership 在現代社會扮演重要角色。人們常需要更加理解 Leadership，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Leadership。社區計畫是增加公眾 support 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 29,
+    "title": "Teamwork",
+    "passage": "Teamwork plays an important role in modern society. People often need to understand teamwork to make better decisions.. For example, simple actions at home can lead to teamwork that benefit everyone. Community programs are a good way to increase public teamwork and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand teamwork to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to teamwork that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public teamwork and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Teamwork 在現代社會扮演重要角色。人們常需要更加理解 Teamwork，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Teamwork。社區計畫是增加公眾 cleaning 並促進長期 awareness 的好方法。",
+    "trans_full": "Teamwork 在現代社會扮演重要角色。人們常需要更加理解 Teamwork，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Teamwork。社區計畫是增加公眾 cleaning 並促進長期 awareness 的好方法。"
+  },
+  {
+    "id": 30,
+    "title": "Entrepreneurship",
+    "passage": "Entrepreneurship plays an important role in modern society. People often need to understand entrepreneurship to make better decisions.. For example, simple actions at home can lead to entrepreneurship that benefit everyone. Community programs are a good way to increase public entrepreneurship and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand entrepreneurship to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to entrepreneurship that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public entrepreneurship and promote long-term ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Entrepreneurship 在現代社會扮演重要角色。人們常需要更加理解 Entrepreneurship，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Entrepreneurship。社區計畫是增加公眾 protect 並促進長期 support 的好方法。",
+    "trans_full": "Entrepreneurship 在現代社會扮演重要角色。人們常需要更加理解 Entrepreneurship，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Entrepreneurship。社區計畫是增加公眾 protect 並促進長期 support 的好方法。"
+  },
+  {
+    "id": 31,
+    "title": "Globalization",
+    "passage": "Globalization plays an important role in modern society. People often need to understand globalization to make better decisions.. For example, simple actions at home can lead to globalization that benefit everyone. Community programs are a good way to increase public globalization and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand globalization to make better ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to globalization that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public globalization and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Globalization 在現代社會扮演重要角色。人們常需要更加理解 Globalization，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Globalization。社區計畫是增加公眾 habits 並促進長期 awareness 的好方法。",
+    "trans_full": "Globalization 在現代社會扮演重要角色。人們常需要更加理解 Globalization，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Globalization。社區計畫是增加公眾 habits 並促進長期 awareness 的好方法。"
+  },
+  {
+    "id": 32,
+    "title": "Democracy and Voting",
+    "passage": "Democracy and Voting plays an important role in modern society. People often need to understand democracy and voting to make better decisions.. For example, simple actions at home can lead to democracy and voting that benefit everyone. Community programs are a good way to increase public democracy and voting and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand democracy and voting to make better ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to democracy and voting that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public democracy and voting and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Democracy and Voting 在現代社會扮演重要角色。人們常需要更加理解 Democracy and Voting，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Democracy and Voting。社區計畫是增加公眾 habits 並促進長期 protect 的好方法。",
+    "trans_full": "Democracy and Voting 在現代社會扮演重要角色。人們常需要更加理解 Democracy and Voting，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Democracy and Voting。社區計畫是增加公眾 habits 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 33,
+    "title": "Media Literacy",
+    "passage": "Media Literacy plays an important role in modern society. People often need to understand media literacy to make better decisions.. For example, simple actions at home can lead to media literacy that benefit everyone. Community programs are a good way to increase public media literacy and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand media literacy to make better ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to media literacy that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public media literacy and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Media Literacy 在現代社會扮演重要角色。人們常需要更加理解 Media Literacy，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Media Literacy。社區計畫是增加公眾 support 並促進長期 protect 的好方法。",
+    "trans_full": "Media Literacy 在現代社會扮演重要角色。人們常需要更加理解 Media Literacy，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Media Literacy。社區計畫是增加公眾 support 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 34,
+    "title": "Privacy Settings",
+    "passage": "Privacy Settings plays an important role in modern society. People often need to understand privacy settings to make better decisions.. For example, simple actions at home can lead to privacy settings that benefit everyone. Community programs are a good way to increase public privacy settings and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand privacy settings to make better ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to privacy settings that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public privacy settings and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Privacy Settings 在現代社會扮演重要角色。人們常需要更加理解 Privacy Settings，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Privacy Settings。社區計畫是增加公眾 protect 並促進長期 habits 的好方法。",
+    "trans_full": "Privacy Settings 在現代社會扮演重要角色。人們常需要更加理解 Privacy Settings，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Privacy Settings。社區計畫是增加公眾 protect 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 35,
+    "title": "Cybersecurity",
+    "passage": "Cybersecurity plays an important role in modern society. People often need to understand cybersecurity to make better decisions.. For example, simple actions at home can lead to cybersecurity that benefit everyone. Community programs are a good way to increase public cybersecurity and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand cybersecurity to make better ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to cybersecurity that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public cybersecurity and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Cybersecurity 在現代社會扮演重要角色。人們常需要更加理解 Cybersecurity，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Cybersecurity。社區計畫是增加公眾 awareness 並促進長期 protect 的好方法。",
+    "trans_full": "Cybersecurity 在現代社會扮演重要角色。人們常需要更加理解 Cybersecurity，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Cybersecurity。社區計畫是增加公眾 awareness 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 36,
+    "title": "Tourism Impact",
+    "passage": "Tourism Impact plays an important role in modern society. People often need to understand tourism impact to make better decisions.. For example, simple actions at home can lead to tourism impact that benefit everyone. Community programs are a good way to increase public tourism impact and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand tourism impact to make better ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to tourism impact that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public tourism impact and promote long-term ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Tourism Impact 在現代社會扮演重要角色。人們常需要更加理解 Tourism Impact，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Tourism Impact。社區計畫是增加公眾 safety 並促進長期 growth 的好方法。",
+    "trans_full": "Tourism Impact 在現代社會扮演重要角色。人們常需要更加理解 Tourism Impact，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Tourism Impact。社區計畫是增加公眾 safety 並促進長期 growth 的好方法。"
+  },
+  {
+    "id": 37,
+    "title": "Local Businesses",
+    "passage": "Local Businesses plays an important role in modern society. People often need to understand local businesses to make better decisions.. For example, simple actions at home can lead to local businesses that benefit everyone. Community programs are a good way to increase public local businesses and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand local businesses to make better ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to local businesses that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public local businesses and promote long-term ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Local Businesses 在現代社會扮演重要角色。人們常需要更加理解 Local Businesses，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Local Businesses。社區計畫是增加公眾 protect 並促進長期 practice 的好方法。",
+    "trans_full": "Local Businesses 在現代社會扮演重要角色。人們常需要更加理解 Local Businesses，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Local Businesses。社區計畫是增加公眾 protect 並促進長期 practice 的好方法。"
+  },
+  {
+    "id": 38,
+    "title": "Art and Museums",
+    "passage": "Art and Museums plays an important role in modern society. People often need to understand art and museums to make better decisions.. For example, simple actions at home can lead to art and museums that benefit everyone. Community programs are a good way to increase public art and museums and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand art and museums to make better ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to art and museums that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public art and museums and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Art and Museums 在現代社會扮演重要角色。人們常需要更加理解 Art and Museums，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Art and Museums。社區計畫是增加公眾 practice 並促進長期 safety 的好方法。",
+    "trans_full": "Art and Museums 在現代社會扮演重要角色。人們常需要更加理解 Art and Museums，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Art and Museums。社區計畫是增加公眾 practice 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 39,
+    "title": "Music Influence",
+    "passage": "Music Influence plays an important role in modern society. People often need to understand music influence to make better decisions.. For example, simple actions at home can lead to music influence that benefit everyone. Community programs are a good way to increase public music influence and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand music influence to make better ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to music influence that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public music influence and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Music Influence 在現代社會扮演重要角色。人們常需要更加理解 Music Influence，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Music Influence。社區計畫是增加公眾 support 並促進長期 safety 的好方法。",
+    "trans_full": "Music Influence 在現代社會扮演重要角色。人們常需要更加理解 Music Influence，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Music Influence。社區計畫是增加公眾 support 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 40,
+    "title": "Reading Habits",
+    "passage": "Reading Habits plays an important role in modern society. People often need to understand reading habits to make better decisions.. For example, simple actions at home can lead to reading habits that benefit everyone. Community programs are a good way to increase public reading habits and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand reading habits to make better ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to reading habits that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public reading habits and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Reading Habits 在現代社會扮演重要角色。人們常需要更加理解 Reading Habits，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Reading Habits。社區計畫是增加公眾 habits 並促進長期 safety 的好方法。",
+    "trans_full": "Reading Habits 在現代社會扮演重要角色。人們常需要更加理解 Reading Habits，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Reading Habits。社區計畫是增加公眾 habits 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 41,
+    "title": "Fashion Industry",
+    "passage": "Fashion Industry plays an important role in modern society. People often need to understand fashion industry to make better decisions.. For example, simple actions at home can lead to fashion industry that benefit everyone. Community programs are a good way to increase public fashion industry and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand fashion industry to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to fashion industry that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public fashion industry and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Fashion Industry 在現代社會扮演重要角色。人們常需要更加理解 Fashion Industry，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Fashion Industry。社區計畫是增加公眾 growth 並促進長期 safety 的好方法。",
+    "trans_full": "Fashion Industry 在現代社會扮演重要角色。人們常需要更加理解 Fashion Industry，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Fashion Industry。社區計畫是增加公眾 growth 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 42,
+    "title": "Sustainable Fashion",
+    "passage": "Sustainable Fashion plays an important role in modern society. People often need to understand sustainable fashion to make better decisions.. For example, simple actions at home can lead to sustainable fashion that benefit everyone. Community programs are a good way to increase public sustainable fashion and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand sustainable fashion to make better ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to sustainable fashion that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public sustainable fashion and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Sustainable Fashion 在現代社會扮演重要角色。人們常需要更加理解 Sustainable Fashion，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Sustainable Fashion。社區計畫是增加公眾 habits 並促進長期 habits 的好方法。",
+    "trans_full": "Sustainable Fashion 在現代社會扮演重要角色。人們常需要更加理解 Sustainable Fashion，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Sustainable Fashion。社區計畫是增加公眾 habits 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 43,
+    "title": "Electric Bicycles",
+    "passage": "Electric Bicycles plays an important role in modern society. People often need to understand electric bicycles to make better decisions.. For example, simple actions at home can lead to electric bicycles that benefit everyone. Community programs are a good way to increase public electric bicycles and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand electric bicycles to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to electric bicycles that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public electric bicycles and promote long-term ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Electric Bicycles 在現代社會扮演重要角色。人們常需要更加理解 Electric Bicycles，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Electric Bicycles。社區計畫是增加公眾 safety 並促進長期 practice 的好方法。",
+    "trans_full": "Electric Bicycles 在現代社會扮演重要角色。人們常需要更加理解 Electric Bicycles，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Electric Bicycles。社區計畫是增加公眾 safety 並促進長期 practice 的好方法。"
+  },
+  {
+    "id": 44,
+    "title": "Noise Pollution",
+    "passage": "Noise Pollution plays an important role in modern society. People often need to understand noise pollution to make better decisions.. For example, simple actions at home can lead to noise pollution that benefit everyone. Community programs are a good way to increase public noise pollution and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand noise pollution to make better ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to noise pollution that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public noise pollution and promote long-term ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Noise Pollution 在現代社會扮演重要角色。人們常需要更加理解 Noise Pollution，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Noise Pollution。社區計畫是增加公眾 cleaning 並促進長期 practice 的好方法。",
+    "trans_full": "Noise Pollution 在現代社會扮演重要角色。人們常需要更加理解 Noise Pollution，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Noise Pollution。社區計畫是增加公眾 cleaning 並促進長期 practice 的好方法。"
+  },
+  {
+    "id": 45,
+    "title": "Air Quality",
+    "passage": "Air Quality plays an important role in modern society. People often need to understand air quality to make better decisions.. For example, simple actions at home can lead to air quality that benefit everyone. Community programs are a good way to increase public air quality and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand air quality to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to air quality that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public air quality and promote long-term ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Air Quality 在現代社會扮演重要角色。人們常需要更加理解 Air Quality，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Air Quality。社區計畫是增加公眾 habits 並促進長期 safety 的好方法。",
+    "trans_full": "Air Quality 在現代社會扮演重要角色。人們常需要更加理解 Air Quality，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Air Quality。社區計畫是增加公眾 habits 並促進長期 safety 的好方法。"
+  },
+  {
+    "id": 46,
+    "title": "Digital Payments",
+    "passage": "Digital Payments plays an important role in modern society. People often need to understand digital payments to make better decisions.. For example, simple actions at home can lead to digital payments that benefit everyone. Community programs are a good way to increase public digital payments and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand digital payments to make better ______",
+        "choices": [
+          "support",
+          "ignore",
+          "destroy",
+          "forget"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to digital payments that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public digital payments and promote long-term ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Digital Payments 在現代社會扮演重要角色。人們常需要更加理解 Digital Payments，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Digital Payments。社區計畫是增加公眾 safety 並促進長期 growth 的好方法。",
+    "trans_full": "Digital Payments 在現代社會扮演重要角色。人們常需要更加理解 Digital Payments，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Digital Payments。社區計畫是增加公眾 safety 並促進長期 growth 的好方法。"
+  },
+  {
+    "id": 47,
+    "title": "Credit and Saving",
+    "passage": "Credit and Saving plays an important role in modern society. People often need to understand credit and saving to make better decisions.. For example, simple actions at home can lead to credit and saving that benefit everyone. Community programs are a good way to increase public credit and saving and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand credit and saving to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to credit and saving that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "practice",
+          "failure",
+          "fear",
+          "view"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public credit and saving and promote long-term ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Credit and Saving 在現代社會扮演重要角色。人們常需要更加理解 Credit and Saving，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Credit and Saving。社區計畫是增加公眾 practice 並促進長期 cleaning 的好方法。",
+    "trans_full": "Credit and Saving 在現代社會扮演重要角色。人們常需要更加理解 Credit and Saving，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Credit and Saving。社區計畫是增加公眾 practice 並促進長期 cleaning 的好方法。"
+  },
+  {
+    "id": 48,
+    "title": "Job Interviews",
+    "passage": "Job Interviews plays an important role in modern society. People often need to understand job interviews to make better decisions.. For example, simple actions at home can lead to job interviews that benefit everyone. Community programs are a good way to increase public job interviews and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand job interviews to make better ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to job interviews that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public job interviews and promote long-term ______",
+        "choices": [
+          "cleaning",
+          "reading",
+          "awareness",
+          "sleep"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Job Interviews 在現代社會扮演重要角色。人們常需要更加理解 Job Interviews，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Job Interviews。社區計畫是增加公眾 growth 並促進長期 cleaning 的好方法。",
+    "trans_full": "Job Interviews 在現代社會扮演重要角色。人們常需要更加理解 Job Interviews，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Job Interviews。社區計畫是增加公眾 growth 並促進長期 cleaning 的好方法。"
+  },
+  {
+    "id": 49,
+    "title": "Resume Writing",
+    "passage": "Resume Writing plays an important role in modern society. People often need to understand resume writing to make better decisions.. For example, simple actions at home can lead to resume writing that benefit everyone. Community programs are a good way to increase public resume writing and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand resume writing to make better ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to resume writing that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "growth",
+          "decline",
+          "noise",
+          "heat"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public resume writing and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Resume Writing 在現代社會扮演重要角色。人們常需要更加理解 Resume Writing，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Resume Writing。社區計畫是增加公眾 growth 並促進長期 awareness 的好方法。",
+    "trans_full": "Resume Writing 在現代社會扮演重要角色。人們常需要更加理解 Resume Writing，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Resume Writing。社區計畫是增加公眾 growth 並促進長期 awareness 的好方法。"
+  },
+  {
+    "id": 50,
+    "title": "Internships",
+    "passage": "Internships plays an important role in modern society. People often need to understand internships to make better decisions.. For example, simple actions at home can lead to internships that benefit everyone. Community programs are a good way to increase public internships and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand internships to make better ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to internships that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public internships and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Internships 在現代社會扮演重要角色。人們常需要更加理解 Internships，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Internships。社區計畫是增加公眾 protect 並促進長期 habits 的好方法。",
+    "trans_full": "Internships 在現代社會扮演重要角色。人們常需要更加理解 Internships，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Internships。社區計畫是增加公眾 protect 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 51,
+    "title": "Study Abroad",
+    "passage": "Study Abroad plays an important role in modern society. People often need to understand study abroad to make better decisions.. For example, simple actions at home can lead to study abroad that benefit everyone. Community programs are a good way to increase public study abroad and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand study abroad to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to study abroad that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public study abroad and promote long-term ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Study Abroad 在現代社會扮演重要角色。人們常需要更加理解 Study Abroad，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Study Abroad。社區計畫是增加公眾 habits 並促進長期 habits 的好方法。",
+    "trans_full": "Study Abroad 在現代社會扮演重要角色。人們常需要更加理解 Study Abroad，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Study Abroad。社區計畫是增加公眾 habits 並促進長期 habits 的好方法。"
+  },
+  {
+    "id": 52,
+    "title": "Exam Preparation",
+    "passage": "Exam Preparation plays an important role in modern society. People often need to understand exam preparation to make better decisions.. For example, simple actions at home can lead to exam preparation that benefit everyone. Community programs are a good way to increase public exam preparation and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand exam preparation to make better ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to exam preparation that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public exam preparation and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Exam Preparation 在現代社會扮演重要角色。人們常需要更加理解 Exam Preparation，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Exam Preparation。社區計畫是增加公眾 awareness 並促進長期 awareness 的好方法。",
+    "trans_full": "Exam Preparation 在現代社會扮演重要角色。人們常需要更加理解 Exam Preparation，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Exam Preparation。社區計畫是增加公眾 awareness 並促進長期 awareness 的好方法。"
+  },
+  {
+    "id": 53,
+    "title": "Public Speaking",
+    "passage": "Public Speaking plays an important role in modern society. People often need to understand public speaking to make better decisions.. For example, simple actions at home can lead to public speaking that benefit everyone. Community programs are a good way to increase public public speaking and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand public speaking to make better ______",
+        "choices": [
+          "habits",
+          "books",
+          "stores",
+          "cars"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to public speaking that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public public speaking and promote long-term ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Public Speaking 在現代社會扮演重要角色。人們常需要更加理解 Public Speaking，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Public Speaking。社區計畫是增加公眾 awareness 並促進長期 protect 的好方法。",
+    "trans_full": "Public Speaking 在現代社會扮演重要角色。人們常需要更加理解 Public Speaking，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Public Speaking。社區計畫是增加公眾 awareness 並促進長期 protect 的好方法。"
+  },
+  {
+    "id": 54,
+    "title": "Conflict Resolution",
+    "passage": "Conflict Resolution plays an important role in modern society. People often need to understand conflict resolution to make better decisions.. For example, simple actions at home can lead to conflict resolution that benefit everyone. Community programs are a good way to increase public conflict resolution and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand conflict resolution to make better ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to conflict resolution that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public conflict resolution and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Conflict Resolution 在現代社會扮演重要角色。人們常需要更加理解 Conflict Resolution，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Conflict Resolution。社區計畫是增加公眾 awareness 並促進長期 awareness 的好方法。",
+    "trans_full": "Conflict Resolution 在現代社會扮演重要角色。人們常需要更加理解 Conflict Resolution，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Conflict Resolution。社區計畫是增加公眾 awareness 並促進長期 awareness 的好方法。"
+  },
+  {
+    "id": 55,
+    "title": "Critical Thinking",
+    "passage": "Critical Thinking plays an important role in modern society. People often need to understand critical thinking to make better decisions.. For example, simple actions at home can lead to critical thinking that benefit everyone. Community programs are a good way to increase public critical thinking and promote long-term ______.",
+    "questions": [
+      {
+        "q": "People often need to understand critical thinking to make better ______",
+        "choices": [
+          "safety",
+          "awareness",
+          "speed",
+          "cost"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Simple actions at home can lead to critical thinking that benefit everyone. Such actions often require public ______",
+        "choices": [
+          "protect",
+          "change",
+          "sell",
+          "lift"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Community programs are a good way to increase public critical thinking and promote long-term ______",
+        "choices": [
+          "awareness",
+          "danger",
+          "silence",
+          "height"
+        ],
+        "answer": 0
+      }
+    ],
+    "translation": "Critical Thinking 在現代社會扮演重要角色。人們常需要更加理解 Critical Thinking，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Critical Thinking。社區計畫是增加公眾 protect 並促進長期 awareness 的好方法。",
+    "trans_full": "Critical Thinking 在現代社會扮演重要角色。人們常需要更加理解 Critical Thinking，以做出更好的決定。舉例來說，家庭中的簡單行為可以帶來有益於大家的 Critical Thinking。社區計畫是增加公眾 protect 並促進長期 awareness 的好方法。"
+  }
+];
+
+const groupList = document.getElementById('groupList');
+groups.forEach(g=>{
+  const b = document.createElement('button');
+  b.className='group-btn';
+  b.textContent = g.id + '. ' + (g.title || ('第'+g.id+'組'));
+  b.onclick = ()=> loadGroup(g.id);
+  groupList.appendChild(b);
+});
+
+let current = 1;
+window.userSelections = [];
+
+function loadGroup(id){
+  current = id;
+  document.querySelectorAll('.group-btn').forEach((btn, idx)=>{
+    btn.classList.toggle('active', idx === id-1);
+  });
+  const g = groups[id-1];
+  const panel = document.getElementById('panel');
+  let html = `<h2>${g.id}. ${escapeHtml(g.title)}</h2>`;
+  html += `<div class="passage">${escapeHtml(g.passage)}</div>`;
+  if(g.questions && g.questions.length>0){
+    window.userSelections = new Array(g.questions.length).fill(null);
+    g.questions.forEach((q,qi)=>{
+      html += `<div class="question" data-qindex="${qi}">`;
+      html += `<div class="qtxt"><strong>Q${qi+1}.</strong> ${escapeHtml(q.q)}</div>`;
+      html += `<div class="options">`;
+      q.choices.forEach((c,ci)=>{
+        html += `<div class="opt" data-choice="${ci}" onclick="selectOption(${qi},${ci})">${String.fromCharCode(65+ci)}. ${escapeHtml(c)}</div>`;
+      });
+      html += `</div></div>`;
+    });
+    html += `<div class="controls">`;
+    html += `<button class="btn primary" onclick="checkAnswers()">檢查答案</button>`;
+    html += `<button class="btn" onclick="showAnswers()">顯示正解</button>`;
+    html += `<button class="btn" onclick="toggleTranslation()">顯示/隱藏中文翻譯</button>`;
+    html += `</div>`;
+    html += `<div id="status" class="status"></div>`;
+    html += `<div id="translationBox" class="translation"><pre>${escapeHtml(g.trans_full || g.translation || '翻譯尚未提供。')}</pre></div>`;
+  } else {
+    html += `<div class="question"><em>此題組尚未上傳內容，請稍後回來或聯絡建立者。</em></div>`;
+  }
+  panel.innerHTML = html;
+}
+
+function escapeHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function selectOption(qIndex, choiceIndex){
+  const questionDiv = document.querySelector(`.question[data-qindex="${qIndex}"]`);
+  if(!questionDiv) return;
+  window.userSelections[qIndex] = choiceIndex;
+  questionDiv.querySelectorAll('.opt').forEach(opt=> opt.classList.remove('selected','correct','wrong'));
+  const el = questionDiv.querySelector(`.opt[data-choice="${choiceIndex}"]`);
+  if(el) el.classList.add('selected');
+}
+
+function checkAnswers(){
+  const g = groups[current-1];
+  if(!g.questions || g.questions.length===0) return;
+  let correctCount = 0;
+  g.questions.forEach((q,qi)=>{
+    const qDiv = document.querySelector(`.question[data-qindex="${qi}"]`);
+    const opts = qDiv.querySelectorAll('.opt');
+    opts.forEach(opt=> opt.classList.remove('correct','wrong'));
+    const sel = window.userSelections[qi];
+    if(sel === q.answer){
+      correctCount++;
+      const el = qDiv.querySelector(`.opt[data-choice="${sel}"]`);
+      if(el) el.classList.add('correct');
+    } else {
+      if(sel !== null && sel !== undefined){
+        const el = qDiv.querySelector(`.opt[data-choice="${sel}"]`);
+        if(el) el.classList.add('wrong');
+      }
+      const correctEl = qDiv.querySelector(`.opt[data-choice="${q.answer}"]`);
+      if(correctEl) correctEl.classList.add('correct');
+    }
+  });
+  const status = document.getElementById('status');
+  status.textContent = `作答結果：${correctCount} / ${g.questions.length} 題正確`;
+}
+
+function showAnswers(){
+  const g = groups[current-1];
+  if(!g.questions) return;
+  g.questions.forEach((q,qi)=>{
+    const qDiv = document.querySelector(`.question[data-qindex="${qi}"]`);
+    if(!qDiv) return;
+    qDiv.querySelectorAll('.opt').forEach(opt=>{
+      opt.classList.remove('selected','wrong');
+      const choice = parseInt(opt.getAttribute('data-choice'));
+      if(choice === q.answer) opt.classList.add('correct');
+    });
+  });
+  const status = document.getElementById('status');
+  status.textContent = `正解已顯示`;
+}
+
+function toggleTranslation(){
+  const box = document.getElementById('translationBox');
+  if(!box) return;
+  box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+}
+
+// init
+loadGroup(1);
+
+</script>
+</body>
+</html>
